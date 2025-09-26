@@ -34,7 +34,7 @@
     }
 
     .headline {
-      font-size: clamp(2.0rem, 7vw, 4rem);
+      font-size: clamp(2.0rem, 7vw, 3rem);
       font-weight: 700;
       margin-bottom: 3rem;
       line-height: 1.1;
@@ -42,7 +42,8 @@
 
     .highlight {
       background: linear-gradient(130deg, #ff4c75 10%, #f5ad57 100%);
-      font-size: clamp(2.0rem, 7vw, 5rem);
+      font-size: clamp(2.5rem, 9vw, 5rem);
+      font-weight: 700;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -107,7 +108,7 @@
 <body>
   <div class="container">
     <div class="headline">
-      Don't miss our next<br><span class="highlight">Open House</span>.
+      Don't miss out on our next<br><span class="highlight">Open House</span>.
     </div>
     <div class="subheadline">Starts in:</div>
     <div class="countdown" id="countdown">Loading...</div>
@@ -122,7 +123,7 @@
 
     function updateCountdown() {
       const now = new Date().getTime();
-      const eventDate = new Date("2025-10-04T10:00:00-06:00").getTime(); // MDT
+      const eventDate = new Date("2025-10-04T10:00:00-06:00").getTime();
 
       const distance = eventDate - now;
 
@@ -135,13 +136,12 @@
       const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
+      
       countdownEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
     }
 
     updateCountdown();
-    setInterval(updateCountdown, 1000); // update every second
+    setInterval(updateCountdown, 1000);
   </script>
 </body>
-
 </html>
